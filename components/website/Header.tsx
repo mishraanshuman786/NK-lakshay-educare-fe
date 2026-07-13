@@ -17,7 +17,7 @@ const Header = () => {
 
        </div>
        {/* bottom header */}
-       <div className="bg-white border border-red-500 ">
+       <div className="bg-white ">
        <nav className="max-w-6xl h-16 font-semobold text-md mx-auto flex justify-between items-center text-black ">
         <div>
          Company Logo
