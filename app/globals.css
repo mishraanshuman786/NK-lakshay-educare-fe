@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --color-background-primary: var(--background-primary);
   --color-background-secondary: var(--background-secondary);
+  --color-background-lightblue: var(--background-lightblue);
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-poppins);
@@ -55,6 +56,7 @@
   --foreground: oklch(0.145 0 0);
   --background-primary:#ff9131;
   --background-secondary:#3a7f79;
+  --background-lightblue:#F3F8F9;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
