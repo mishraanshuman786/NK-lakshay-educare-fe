@@ -69,12 +69,12 @@ const Header = () => {
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-center gap-5 font-medium">
-              {links.map((link, index) => (
+              {links.map((tab, index) => (
                 <li
                   key={index}
                   className="hover:text-background-secondary cursor-pointer transition-colors"
                 >
-                  {link.label}
+                  <Link href={tab.link}>{tab.label}</Link>
                 </li>
               ))}
             </ul>
