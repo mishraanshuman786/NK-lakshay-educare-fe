@@ -4,7 +4,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { FaqsSectionType } from "@/lib/data/home";
+import { FaqsSectionType } from "@/lib/data/website/home";
 
 type FaqsSectionProps = {
   data: FaqsSectionType;

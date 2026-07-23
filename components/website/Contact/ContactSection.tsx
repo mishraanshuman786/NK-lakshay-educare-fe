@@ -1,4 +1,4 @@
-import { ContactListSectionType } from "@/lib/data/contact";
+import { ContactListSectionType } from "@/lib/data/website/contact";
 
 type ContactSectionProps = {
   data: ContactListSectionType;

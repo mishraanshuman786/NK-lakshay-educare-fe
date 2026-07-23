@@ -1,4 +1,5 @@
-import { commonData } from "@/lib/data/common";
+
+import { commonData } from "@/lib/data/website/common";
 
 const Footer = () => {
   return (

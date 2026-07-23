@@ -1,12 +1,10 @@
-import Header from "@/components/website/Header";
-import Footer from "@/components/website/Footer";
-import { aboutData } from "@/lib/data/about";
+import { aboutData } from "@/lib/data/website/about";
 import OurTeamSlider from "@/components/website/About/OurTeamSlider";
 
 const About = () => {
   return (
     <div>
-      <Header />
+      
 
       {/* Route */}
       <div className="bg-background-lightblue py-10 md:py-14 px-4">
@@ -74,7 +72,7 @@ const About = () => {
 
       <OurTeamSlider data={aboutData.ourTeamSliderSection} />
 
-      <Footer />
+     
     </div>
   );
 };

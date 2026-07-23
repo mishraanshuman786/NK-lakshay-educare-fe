@@ -1,4 +1,4 @@
-import { QualitySectionType } from "@/lib/data/home";
+import { QualitySectionType } from "@/lib/data/website/home";
 
 type QualitySectionProps = {
   data: QualitySectionType;

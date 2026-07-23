@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { OurTeamSliderType } from "@/lib/data/about";
+import { OurTeamSliderType } from "@/lib/data/website/about";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
