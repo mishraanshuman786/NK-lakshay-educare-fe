@@ -5,36 +5,43 @@ import { Button } from "../ui/button";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
+import RegisterDialog from "./RegisterDialog";
+import { useRouter } from "next/navigation";
 
 const links = [
   {
-    link:"/",
-    label:"Home"
+    link: "/",
+    label: "Home",
   },
   {
-    link:"/about",
-    label:"About Us"
+    link: "/about",
+    label: "About Us",
   },
   {
-    link:"/book-demo",
-    label:"Book Demo"
+    link: "/book-demo",
+    label: "Book Demo",
   },
   {
-    link:"timeline-blogs",
-    label:"Timeline & Blogs"
+    link: "timeline-blogs",
+    label: "Timeline & Blogs",
   },
   {
-    link:"/how-it-works",
-    label:"How It Works"
+   link:"/best-and-prefessional-home-tutor",
+   label:"ALL TUTOR"
   },
   {
-    link:"/contact",
-    label:"Contact"
-  }
+    link: "/how-it-works",
+    label: "How It Works",
+  },
+  {
+    link: "/contact",
+    label: "Contact",
+  },
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const router=useRouter();
 
   return (
     <>
@@ -47,15 +54,20 @@ const Header = () => {
             </h3>
 
             <div className="flex">
-              <button className="p-2 hover:bg-background-primary">
-                Login
-              </button>
+              <button className="p-2 hover:bg-background-primary" onClick={()=>router.push("/sign_in")}>Login</button>
 
               <div className="border-r border-white" />
 
-              <button className="p-2 hover:bg-background-primary">
+              {/* <button className="p-2 hover:bg-background-primary">
                 Register
-              </button>
+              </button> */}
+              <div className="bg-transparent hover:bg-background-primary">
+                <RegisterDialog>
+                  <Button className="h-full w-full cursor-pointer bg-transparent hover:bg-background-primary">
+                    Register
+                  </Button>
+                </RegisterDialog>
+              </div>
             </div>
           </div>
         </div>
@@ -63,9 +75,7 @@ const Header = () => {
         {/* Bottom Header */}
         <div className="bg-white">
           <nav className="max-w-6xl h-16 mx-auto flex justify-between items-center text-black">
-            <div className="px-2 font-bold text-xl">
-              Logo
-            </div>
+            <div className="px-2 font-bold text-xl">Logo</div>
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex items-center gap-5 font-medium">
@@ -101,19 +111,16 @@ const Header = () => {
       <div
         onClick={() => setOpen(false)}
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden ${
-          open
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+          open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       />
 
-     
-     {/* Drawer */}
-<div
-  className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
-    open ? "translate-x-0" : "translate-x-full"
-  }`}
->
+      {/* Drawer */}
+      <div
+        className={`fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out md:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
         {/* Drawer Header */}
         <div className="flex justify-between items-center p-5 border-b">
           <h2 className="text-xl font-bold text-black">Menu</h2>
