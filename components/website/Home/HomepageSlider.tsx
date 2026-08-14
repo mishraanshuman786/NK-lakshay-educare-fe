@@ -35,10 +35,11 @@ const HomepageSlider = () => {
         }}
       >
         {[
-          "/slider/slider2.webp",
-          "/slider/slider3.webp",
-          "/slider/slider4.webp",
-          "/slider/slider5.webp",
+          "/slider2/slider1.jpg",
+          "/slider2/slider2.jpg",
+          "/slider2/slider3.jpg",
+          "/slider2/slider4.jpg",
+          "/slider2/slider5.jpg",
         ].map((image, index) => (
           <SwiperSlide key={index}>
             <img

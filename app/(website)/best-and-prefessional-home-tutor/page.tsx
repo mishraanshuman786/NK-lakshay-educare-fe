@@ -1,5 +1,6 @@
 import React from 'react'
 import FilterSection from '@/components/website/BestAndProfessionalHomeTutor/FilterSection';
+import TeacherCard from '@/components/website/BestAndProfessionalHomeTutor/TeacherCard';
 
 const BestAndProfessionalHomeTutor = () => {
   return (
@@ -10,10 +11,16 @@ const BestAndProfessionalHomeTutor = () => {
       </div>
 
       <div className=' max-w-6xl mx-auto grid grid-cols-[1fr_3fr] gap-4 my-10'>
-       <div className='shadow-lg p-4'>
+       <div className='shadow-lg h-225 p-4'>
          <FilterSection />
        </div>
-        <div className='border border-black p-4'>njnfdjksnk</div>
+        <div className='shadow-lg bg-gray-100  flex flex-col gap-4'>
+          <TeacherCard />
+          <TeacherCard />
+          <TeacherCard />
+          <TeacherCard />
+          <TeacherCard />
+        </div>
 
       </div>
 

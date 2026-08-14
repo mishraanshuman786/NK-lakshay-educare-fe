@@ -26,8 +26,8 @@ const links = [
     label: "Timeline & Blogs",
   },
   {
-   link:"/best-and-prefessional-home-tutor",
-   label:"ALL TUTOR"
+    link: "/best-and-prefessional-home-tutor",
+    label: "ALL TUTOR",
   },
   {
     link: "/how-it-works",
@@ -41,7 +41,7 @@ const links = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const router=useRouter();
+  const router = useRouter();
 
   return (
     <>
@@ -54,7 +54,12 @@ const Header = () => {
             </h3>
 
             <div className="flex">
-              <button className="p-2 hover:bg-background-primary" onClick={()=>router.push("/sign_in")}>Login</button>
+              <button
+                className="p-2 hover:bg-background-primary"
+                onClick={() => router.push("/sign_in")}
+              >
+                Login
+              </button>
 
               <div className="border-r border-white" />
 
@@ -73,38 +78,45 @@ const Header = () => {
         </div>
 
         {/* Bottom Header */}
-        <div className="bg-white">
-          <nav className="max-w-6xl h-16 mx-auto flex justify-between items-center text-black">
-            <div className="px-2 font-bold text-xl">Logo</div>
+     
+<div className="bg-white">
+  <nav className="max-w-6xl h-16 md:h-24 mx-auto flex justify-between items-center text-black">
+    <div className="px-2 flex items-center">
+      <img
+        src="/logo.png"
+        alt="logo"
+        className="w-16 h-16 md:w-24 md:h-24 object-contain"
+      />
+    </div>
 
-            {/* Desktop Menu */}
-            <ul className="hidden md:flex items-center gap-5 font-medium">
-              {links.map((tab, index) => (
-                <li
-                  key={index}
-                  className="hover:text-background-secondary cursor-pointer transition-colors"
-                >
-                  <Link href={tab.link}>{tab.label}</Link>
-                </li>
-              ))}
-            </ul>
+    {/* Desktop Menu */}
+    <ul className="hidden md:flex items-center gap-5 font-medium text-md">
+      {links.map((tab, index) => (
+        <li
+          key={index}
+          className="hover:text-background-secondary cursor-pointer transition-colors"
+        >
+          <Link href={tab.link}>{tab.label}</Link>
+        </li>
+      ))}
+    </ul>
 
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setOpen(true)}
-              className="block md:hidden p-2 mr-2"
-            >
-              <GiHamburgerMenu className="text-2xl" />
-            </button>
+    {/* Mobile Hamburger */}
+    <button
+      onClick={() => setOpen(true)}
+      className="block md:hidden p-2 mr-2"
+    >
+      <GiHamburgerMenu className="text-2xl" />
+    </button>
 
-            {/* Desktop Button */}
-            <div className="hidden md:block">
-              <Button className="rounded-full bg-background-primary px-8">
-                Pay Now
-              </Button>
-            </div>
-          </nav>
-        </div>
+    {/* Desktop Button */}
+    <div className="hidden md:flex items-center">
+      <Button className="rounded-full bg-background-primary px-8 text-xl py-6">
+        Pay Now
+      </Button>
+    </div>
+  </nav>
+</div>
       </header>
 
       {/* Overlay */}
