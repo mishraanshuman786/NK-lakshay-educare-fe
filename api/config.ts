@@ -1,4 +1,4 @@
-import axios,{ type InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
 import serverConstant from "./serverConstant";
 
 const publicAxios=axios.create({
@@ -15,7 +15,7 @@ const securedAxios=axios.create({
     }
 });
 
-securedAxios.interceptors.request.use((config:InternalAxiosRequestConfig)=>{
+securedAxios.interceptors.request.use((config)=>{
     const token=localStorage.getItem("token");
 
     if(token){
