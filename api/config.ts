@@ -30,7 +30,8 @@ securedAxios.interceptors.request.use((config) => {
 
 
 const ApiUrls={
-    authUrl:`${serverConstant.baseUrl}/api/auth`
+    authUrl:`${serverConstant.baseUrl}/api/auth`,
+    userUrl:`${serverConstant.baseUrl}/api/users`
 }
 
 
