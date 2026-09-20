@@ -69,7 +69,12 @@ interface FilterSectionProps {
   subjects: string[];
   setSubjects: React.Dispatch<React.SetStateAction<string[]>>;
 
-  onSearch: () => void;
+  onSearch: (
+    languages?: string[],
+    courses?: string[],
+    subjects?: string[],
+  ) => void;
+
   onClear: () => void;
 }
 
@@ -103,7 +108,9 @@ const FilterSection = ({
 
         <div className="flex gap-2 mt-2">
           <button
-            onClick={onSearch}
+            onClick={() =>
+              onSearch(selectedLanguages, selectedCourses, selectedSubjects)
+            }
             className="bg-background-secondary text-white px-4 py-2 rounded-md"
           >
             Search
@@ -132,7 +139,13 @@ const FilterSection = ({
                 id={`language-${normalizedLanguage}`}
                 checked={selectedLanguages.includes(normalizedLanguage)}
                 onChange={() =>
-                  toggleFilter(language, selectedLanguages, setLanguages)
+                  toggleFilter(
+                    language,
+                    selectedLanguages,
+                    setLanguages,
+                    (newLanguages) =>
+                      onSearch(newLanguages, selectedCourses, selectedSubjects),
+                  )
                 }
               />
 
@@ -161,7 +174,19 @@ const FilterSection = ({
                   type="checkbox"
                   id={`course-${normalizedCourse}`}
                   checked={selectedCourses.includes(normalizedCourse)}
-                  onChange={() => toggleFilter(cl, selectedCourses, setCourses)}
+                  onChange={() =>
+                    toggleFilter(
+                      cl,
+                      selectedCourses,
+                      setCourses,
+                      (newCourses) =>
+                        onSearch(
+                          selectedLanguages,
+                          newCourses,
+                          selectedSubjects,
+                        ),
+                    )
+                  }
                 />
 
                 <label
@@ -191,7 +216,17 @@ const FilterSection = ({
                   id={`subject-${normalizedSubject}`}
                   checked={selectedSubjects.includes(normalizedSubject)}
                   onChange={() =>
-                    toggleFilter(subject, selectedSubjects, setSubjects)
+                    toggleFilter(
+                      subject,
+                      selectedSubjects,
+                      setSubjects,
+                      (newSubjects) =>
+                        onSearch(
+                          selectedLanguages,
+                          selectedCourses,
+                          newSubjects,
+                        ),
+                    )
                   }
                 />
 
@@ -216,14 +251,20 @@ const toggleFilter = (
   value: string,
   selectedValues: string[],
   setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>,
+  onFilterChange: (newValues: string[]) => void,
 ) => {
   const normalizedValue = value.trim().toLowerCase();
 
+  let newValues: string[];
+
   if (selectedValues.includes(normalizedValue)) {
-    setSelectedValues(
-      selectedValues.filter((item) => item !== normalizedValue),
-    );
+    newValues = selectedValues.filter((item) => item !== normalizedValue);
   } else {
-    setSelectedValues([...selectedValues, normalizedValue]);
+    newValues = [...selectedValues, normalizedValue];
   }
+
+  setSelectedValues(newValues);
+
+  // Immediately trigger API
+  onFilterChange(newValues);
 };

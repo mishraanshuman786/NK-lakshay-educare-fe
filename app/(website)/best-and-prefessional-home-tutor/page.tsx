@@ -104,11 +104,22 @@ const BestAndProfessionalHomeTutor = () => {
   // Search
   // -----------------------------------------
 
-  const handleSearch = () => {
-    setPage(1);
+const handleSearch = (
+  currentLanguages = languages,
+  currentCourses = courses,
+  currentSubjects = subjects
+) => {
+  setPage(1);
 
-    fetchTeachers(1, limit, search , languages, courses, subjects);
-  };
+  fetchTeachers(
+    1,
+    limit,
+    search,
+    currentLanguages,
+    currentCourses,
+    currentSubjects
+  );
+};
 
   // -----------------------------------------
   // Clear
